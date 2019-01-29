@@ -4,10 +4,10 @@ using System.Text;
 
 namespace LifeIn2.Domain.Entities.Security
 {
-    public class RolePermission
+    public class Permission
     {
-        public int RolePermissionId { get; set; }
-        public int RoleId { get; set; }
         public int PermissionId { get; set; }
+        public string Name { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

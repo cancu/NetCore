@@ -14,6 +14,9 @@ using LifeIn2.Persistence;
 using AutoMapper;
 using LifeIn2.RazorUI;
 using LifeIn2.RazorUI.Mappings;
+using FluentValidation.AspNetCore;
+using LifeIn2.Application.Identity.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace RazorPages1
 {
@@ -29,6 +32,17 @@ namespace RazorPages1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                opt.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(opt =>
+            {
+                opt.LoginPath = new PathString("/Index");
+                opt.ExpireTimeSpan = TimeSpan.FromMinutes(5.0);
+            });
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -51,11 +65,13 @@ namespace RazorPages1
             services.AddMvc().AddRazorPagesOptions(options =>
             {
                 options.AllowAreas = true;
-            });
+            }).AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginVM>());
 
             services.AddDbContext<NorthwindContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("NorthwindContext"));
+                options.UseSqlServer(Configuration.GetConnectionString("NorthwindContext"),
+                    b => b.MigrationsAssembly("LifeIn2.RazorUI"));
+
             });
         }
 
@@ -72,10 +88,12 @@ namespace RazorPages1
                 app.UseHsts();
             }
 
-            
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseAuthentication();
 
             app.UseMvc();
         }

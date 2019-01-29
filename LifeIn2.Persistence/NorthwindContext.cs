@@ -1,5 +1,6 @@
 ﻿using System;
 using LifeIn2.Domain.Entities;
+using LifeIn2.Domain.Entities.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -29,6 +30,11 @@ namespace LifeIn2.Persistence
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserRole> UserRole { get; set; }
+        public virtual DbSet<RolePermission> RolePermission { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Permission> Permission { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

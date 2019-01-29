@@ -3,25 +3,30 @@
 @{
     Layout = null;
 }
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="LoginVM.UserName"></label>
-                <input type="text" asp-for="LoginVM.UserName" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="LoginVM.Password"></label>
-                <input type="text" class="form-control" asp-for="LoginVM.Password" />
-            </div>
-            <div class="form-group">
-                <label asp-for="LoginVM.RememberMe"></label>
-                <input type="checkbox" asp-for="LoginVM.RememberMe" />
-            </div>
-            <div class="form-group">
-                <button class="btn btn-default">Login</button>
+<form method="POST">
+    <div class="container">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="LoginVM.UserName"></label>
+                    <input type="text" asp-for="LoginVM.UserName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LoginVM.Password"></label>
+                    <input type="text" class="form-control" asp-for="LoginVM.Password" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LoginVM.RememberMe"></label>
+                    <input type="checkbox" asp-for="LoginVM.RememberMe" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default" asp-page-handler="Login">Login</button>
+                    @*<input type="submit" class="btn btn-default" asp-page-handler="Login">*@
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>

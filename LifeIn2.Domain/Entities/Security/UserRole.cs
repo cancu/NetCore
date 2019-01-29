@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeIn2.Domain.Security.Entities
+namespace LifeIn2.Domain.Entities.Security
 {
     public class UserRole
     {
