@@ -7,8 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using LifeIn2.Persistence;
+using AutoMapper;
+using LifeIn2.RazorUI;
+using LifeIn2.RazorUI.Mappings;
 
 namespace RazorPages1
 {
@@ -31,8 +36,27 @@ namespace RazorPages1
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Auto Mapper Configurations
+            //var mappingConfig = new MapperConfiguration(mc =>
+            //{
+            //    mc.AddProfile(new MappingProfile());
+            //});
+
+            //IMapper mapper = mappingConfig.CreateMapper();
+            //services.AddSingleton(mapper);
+
+            services.AddAutoMapper();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.AllowAreas = true;
+            });
+
+            services.AddDbContext<NorthwindContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("NorthwindContext"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +72,7 @@ namespace RazorPages1
                 app.UseHsts();
             }
 
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

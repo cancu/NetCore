@@ -1,0 +1,77 @@
+﻿@page  "{searchString?}"
+@model CardModel
+@{
+}
+
+<h2>Index</h2>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form>
+    <p>
+        <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Ara" />
+    </p>
+</form>
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Card" asp-route-sortOrder="@Model.IdSort">
+                    @Html.DisplayNameFor(model => model._categories[0].CategoryId)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Card" asp-route-sortOrder="@Model.NameSort">
+                    @Html.DisplayNameFor(model => model._categories[0].CategoryName)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model._categories[0].Description)
+            </th>
+            <th>Edit|Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var item in Model._categories)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.CategoryId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.CategoryId">Details</a> |
+                    <a asp-page="./Card" onclick="return confirm('Seçili kayıt silinecek. Emin misiniz?');"
+                       asp-page-handler="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model._categories.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model._categories.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Card"
+   asp-area="Categories"
+   asp-route-pageIndex="@(Model._categories.PageIndex - 1)"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Card"
+   asp-area="Categories"
+   asp-route-pageIndex="@(Model._categories.PageIndex + 1)"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

@@ -1,0 +1,37 @@
+﻿@page
+@model EditModel
+
+<h1>Edit Categories</h1>
+<div class="container">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="hidden" asp-for="CategoryVM.CategoryId"/>
+                <label asp-for="CategoryVM.CategoryName" class="control-label"></label>
+                <div>
+                    <input asp-for="CategoryVM.CategoryName" class="form-control" />
+                    <span asp-validation-for="CategoryVM.CategoryName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="CategoryVM.Description" class="control-label"></label>
+                <div>
+                    <input asp-for="CategoryVM.Description" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-4">
+                <label asp-for="CategoryVM.Picture"></label>
+                <input type="file" class="form-control" asp-for="CategoryVM.Picture">
+            </div>
+        </div>
+        <input type="submit" class="btn" asp-page-handler="Update">
+    </form>
+</div>
+
+
+
