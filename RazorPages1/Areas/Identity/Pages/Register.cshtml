@@ -1,4 +1,34 @@
 ﻿@page
 @model RegisterModel
 @{
+    Layout = "_Layout";
 }
+
+<form method="post">
+    <div class="container">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="ViewModel.UserName"></label>
+                    <input type="text" class="form-control" name="UserName" asp-for="ViewModel.UserName" placeholder="User Name"/>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ViewModel.Email"></label>
+                    <input type="text" class="form-control" name="Email" asp-for="ViewModel.Email" placeholder="Enter Email"/>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ViewModel.Password"></label>
+                    <input type="password" class="form-control" name="Password" asp-for="ViewModel.Password" placeholder="Enter Password"/>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ViewModel.ConfirmPassword"></label>
+                    <input type="password" class="form-control" name="ConfirmPassword" asp-for="ViewModel.ConfirmPassword" placeholder="Enter Password" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-warning">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

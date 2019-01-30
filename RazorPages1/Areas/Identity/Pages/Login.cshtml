@@ -1,9 +1,8 @@
 ﻿@page
 @model LoginModel
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
-<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
 <form method="POST">
     <div class="container">
@@ -16,7 +15,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="LoginVM.Password"></label>
-                    <input type="text" class="form-control" asp-for="LoginVM.Password" />
+                    <input type="password" class="form-control" asp-for="LoginVM.Password" />
                 </div>
                 <div class="form-group">
                     <label asp-for="LoginVM.RememberMe"></label>
@@ -24,7 +23,6 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-default" asp-page-handler="Login">Login</button>
-                    @*<input type="submit" class="btn btn-default" asp-page-handler="Login">*@
                 </div>
             </div>
         </div>

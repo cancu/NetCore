@@ -34,7 +34,14 @@
                     <li><a asp-page="/About">About</a></li>
                     <li><a asp-page="/Contact">Contact</a></li>
                     <li><a asp-page="/Card" asp-area="Category">Categories</a></li>
-                    <li><a asp-page="LogOut" asp-area="Identity">LogOut @User.Identity.Name</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-page="LogOut" asp-area="Identity">LogOut @User.Identity.Name</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-page="Register" asp-area="Identity">Register</a></li>
+                    }
                 </ul>
             </div>
         </div>
