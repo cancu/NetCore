@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using LifeIn2.Application.Identity.Models;
+using LifeIn2.Application.Repository;
 using LifeIn2.Persistence;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -14,19 +15,15 @@ namespace LifeIn2.RazorUI.Areas.Identity.Pages
 {
     public class LoginModel : PageModel
     {
-        private readonly NorthwindContext context;
+        //private readonly NorthwindContext context;
+        private readonly IRepositoryWrapper _repoWrapper; 
 
         [BindProperty]
         public LoginVM LoginVM { get; set; }
 
-        public LoginModel(NorthwindContext context)
+        public LoginModel(IRepositoryWrapper repositoryWrapper)
         {
-            this.context = context;
-        }
-
-        public void OnGet()
-        {
-
+            this._repoWrapper = repositoryWrapper;
         }
 
         public ActionResult OnPostLogin()
@@ -37,7 +34,9 @@ namespace LifeIn2.RazorUI.Areas.Identity.Pages
             }
 
             //todo application a query nesnesi olarak yaz
-            var user = context.User.FirstOrDefault(u => u.UserName == LoginVM.UserName && u.Password == LoginVM.Password);
+            //var user = context.User.FirstOrDefault(u => u.UserName == LoginVM.UserName && u.Password == LoginVM.Password);
+
+            var user = _repoWrapper.User.Get(u => u.UserName == LoginVM.UserName && u.Password == LoginVM.Password).FirstOrDefault();
 
             if (user == null)
             {

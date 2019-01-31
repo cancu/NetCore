@@ -17,6 +17,7 @@ using LifeIn2.RazorUI.Mappings;
 using FluentValidation.AspNetCore;
 using LifeIn2.Application.Identity.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using LifeIn2.RazorUI.Extensions;
 
 namespace RazorPages1
 {
@@ -73,6 +74,8 @@ namespace RazorPages1
                     b => b.MigrationsAssembly("LifeIn2.RazorUI"));
 
             });
+
+            services.ConfigureRepositoryWrapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

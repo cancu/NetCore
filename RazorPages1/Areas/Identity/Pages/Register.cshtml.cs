@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LifeIn2.Application.Identity.Models;
+using LifeIn2.Application.Repository;
 using LifeIn2.Domain.Entities.Security;
 using LifeIn2.Persistence;
 using Microsoft.AspNetCore.Mvc;
@@ -12,14 +13,15 @@ namespace LifeIn2.RazorUI.Areas.Identity.Pages
 {
     public class RegisterModel : PageModel
     {
-        private readonly NorthwindContext context;
+        //private readonly NorthwindContext context;
+        private readonly IRepositoryWrapper _repositoryWrapper;
 
         [BindProperty]
         public RegisterUserViewModel ViewModel { get; set; }
 
-        public RegisterModel(NorthwindContext context)
+        public RegisterModel(IRepositoryWrapper repositoryWrapper)
         {
-            this.context = context;
+            this._repositoryWrapper = repositoryWrapper;
         }
         
         public IActionResult OnPost()
@@ -29,11 +31,11 @@ namespace LifeIn2.RazorUI.Areas.Identity.Pages
                 return Page();
             }
 
-            var checkUser = context.User.FirstOrDefault(u => u.UserName == ViewModel.UserName);
+            var checkUser = _repositoryWrapper.User.Get(u => u.UserName == ViewModel.UserName).FirstOrDefault();
 
             if (checkUser != null)
             {
-                ModelState.AddModelError("", "Bu kullan?c? ad? kullan?mda");
+                ModelState.AddModelError("", "Bu kullanici adi kullanimda");
                 return Page();
             }
 
@@ -42,9 +44,9 @@ namespace LifeIn2.RazorUI.Areas.Identity.Pages
             newUser.Email = ViewModel.Email;
             newUser.Password= ViewModel.Password;
 
-            context.Add(newUser);
+            _repositoryWrapper.User.Add(newUser);
 
-            context.SaveChanges();
+            _repositoryWrapper.User.Save();
 
             return RedirectToPage("/Login", new { area = "Identity" });
         }
