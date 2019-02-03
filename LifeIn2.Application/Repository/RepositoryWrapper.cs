@@ -9,6 +9,7 @@ namespace LifeIn2.Application.Repository
     {        
         private NorthwindContext _repoContext;
         private IUserRepository _user;
+        private ICategoryRepository _category;
 
         public RepositoryWrapper(NorthwindContext context)
         {
@@ -24,6 +25,18 @@ namespace LifeIn2.Application.Repository
                     _user = new UserRepository(_repoContext);
                 }
                 return _user;
+            }
+        }
+
+        public ICategoryRepository Category
+        {
+            get
+            {
+                if (_category == null)
+                {
+                    _category = new CategoryRepository(_repoContext);
+                }
+                return _category;
             }
         }
     }

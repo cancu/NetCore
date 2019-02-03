@@ -1,3 +1,4 @@
+using LifeIn2.Application.Repository;
 using LifeIn2.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,10 +10,11 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
 {
     public class CreateModel : PageModel
     {
-        public NorthwindContext _Context { get; set; }
-        public CreateModel(NorthwindContext context)
+        private readonly IRepositoryWrapper _repositoryWrapper;
+
+        public CreateModel(IRepositoryWrapper repositoryWrapper)
         {
-            _Context = context;
+            _repositoryWrapper = repositoryWrapper;
         }
 
         [BindProperty]
@@ -37,8 +39,8 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
                 category.Picture = memoryStream.ToArray();
             }
 
-            _Context.Add(category);
-            await _Context.SaveChangesAsync();
+            _repositoryWrapper.Category.Add(category);
+            _repositoryWrapper.Category.Save();
 
             return RedirectToPage("Card");
         }

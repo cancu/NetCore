@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using LifeIn2.Application.Repository;
 using LifeIn2.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,12 +13,14 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
 {
     public class EditModel : PageModel
     {
-        public NorthwindContext _context { get; set; }
+        private readonly IRepositoryWrapper _repositoryWrapper;
+
+        //public NorthwindContext _context { get; set; }
         private readonly IMapper _mapper;
 
-        public EditModel(NorthwindContext context, IMapper mapper)
+        public EditModel(IRepositoryWrapper repositoryWrapper, IMapper mapper)
         {
-            _context = context;
+            _repositoryWrapper = repositoryWrapper;
             _mapper = mapper;
         }
 
@@ -28,7 +31,7 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
         {
             if (id != null)
             {
-                var category = _context.Categories.Find(id);
+                var category = _repositoryWrapper.Category.GetById((int)id);
 
                 if (category == null)
                 {
@@ -52,7 +55,7 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
 
             //_context.Attach().State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 
-            var category = await _context.Categories.FindAsync(CategoryVM.CategoryId);
+            var category = _repositoryWrapper.Category.GetById(CategoryVM.CategoryId);
 
             _mapper.Map<CategoryVM, Domain.Entities.Category>(CategoryVM, category);
 
@@ -61,7 +64,7 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
             if (await TryUpdateModelAsync<Domain.Entities.Category>(category, "category",
                 x => x.CategoryId, x => x.CategoryName, x => x.Description))
             {
-                await _context.SaveChangesAsync();
+                await _repositoryWrapper.Category.SaveAsync();
                 return RedirectToPage("./Card");
             }
 
