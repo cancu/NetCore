@@ -1,5 +1,4 @@
-﻿using LifeIn2.Application.Interfaces;
-using LifeIn2.Persistence;
+﻿using LifeIn2.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;

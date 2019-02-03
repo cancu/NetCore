@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Categories\Models\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Products\Pages\" />
   </ItemGroup>
 

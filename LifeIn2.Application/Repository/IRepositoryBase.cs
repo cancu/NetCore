@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace LifeIn2.Application.Interfaces
+namespace LifeIn2.Application.Repository
 {
     public interface IRepositoryBase<T> //where T : IAggregateRoot    
     {
