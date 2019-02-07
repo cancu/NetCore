@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeIn2.Application.Repository
+namespace LifeIn2.Application.Interfaces
 {
     public interface ICategoryRepository : IRepositoryBase<Category>
     {

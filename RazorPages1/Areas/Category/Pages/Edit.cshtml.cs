@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using LifeIn2.Application.Repository;
+using LifeIn2.Application.Interfaces;
 using LifeIn2.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -31,7 +31,7 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
         {
             if (id != null)
             {
-                var category = _repositoryWrapper.Category.GetById((int)id);
+                var category = _repositoryWrapper.Category.GetById(id.Value);
 
                 if (category == null)
                 {

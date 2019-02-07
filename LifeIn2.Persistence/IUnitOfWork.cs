@@ -7,7 +7,6 @@ namespace LifeIn2.Persistence
 {
     public interface IUnitOfWork : IDisposable
     {
-        DbContext Context { get; }
         void Commit();
     }
 }

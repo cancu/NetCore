@@ -1,4 +1,4 @@
-using LifeIn2.Application.Repository;
+using LifeIn2.Application.Interfaces;
 using LifeIn2.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

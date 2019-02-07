@@ -1,4 +1,5 @@
-﻿using LifeIn2.Persistence;
+﻿using LifeIn2.Application.Interfaces;
+using LifeIn2.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,13 +7,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace LifeIn2.Application.Repository
+namespace LifeIn2.Persistence.Repositories
 {
-    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    public abstract class EFRepository<T> : IRepositoryBase<T> where T : class
     {
         protected NorthwindContext RepositoryContext { get; set; }
 
-        public RepositoryBase(NorthwindContext repositoryContext)
+        public EFRepository(NorthwindContext repositoryContext)
         {
             this.RepositoryContext = repositoryContext;
         }
@@ -70,6 +71,6 @@ namespace LifeIn2.Application.Repository
         public async Task SaveAsync()
         {
             await this.RepositoryContext.SaveChangesAsync();
-        }               
+        }   
     }
 }

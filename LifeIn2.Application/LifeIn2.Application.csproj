@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Categories\Models\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Products\Pages\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LifeIn2.Persistence\LifeIn2.Persistence.csproj" />
+    <ProjectReference Include="..\LifeIn2.Domain\LifeIn2.Domain.csproj" />
   </ItemGroup>
 
 </Project>

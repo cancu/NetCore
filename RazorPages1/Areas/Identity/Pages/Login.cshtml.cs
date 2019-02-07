@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using LifeIn2.Application.Identity.Models;
-using LifeIn2.Application.Repository;
+using LifeIn2.Application.Interfaces;
 using LifeIn2.Persistence;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;

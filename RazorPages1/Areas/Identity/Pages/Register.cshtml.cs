@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LifeIn2.Application.Identity.Models;
-using LifeIn2.Application.Repository;
+using LifeIn2.Application.Interfaces;
 using LifeIn2.Domain.Entities.Security;
 using LifeIn2.Persistence;
 using Microsoft.AspNetCore.Mvc;

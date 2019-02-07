@@ -1,4 +1,5 @@
-﻿using LifeIn2.Application.Repository;
+﻿using LifeIn2.Application.Interfaces;
+using LifeIn2.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

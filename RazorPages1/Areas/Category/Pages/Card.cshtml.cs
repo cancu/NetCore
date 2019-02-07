@@ -7,19 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPages1.Common;
 using LifeIn2.Persistence;
 using LifeIn2.Domain;
+using LifeIn2.Application.Interfaces;
 
 namespace LifeIn2.RazorUI.Areas.Category.Pages
 {
     public class CardModel : PageModel
     {
-        NorthwindContext _context;
+        private readonly IRepositoryWrapper _repositoryWrapper;
 
-        public CardModel(NorthwindContext context)
+        public CardModel(IRepositoryWrapper repositoryWrapper)
         {
-            _context = context;
+            this._repositoryWrapper = repositoryWrapper;
         }
 
         //public List<Entities.Categories> _categories { get; set; }
+        [BindProperty]
         public PaginatedList<LifeIn2.Domain.Entities.Category> _categories { get; set; }
 
         [BindProperty(SupportsGet = true)]
@@ -27,15 +29,17 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
         public string IdSort { get; set; }
         public string NameSort { get; set; }
 
-        public async Task OnGetAsync(string sortOrder, int? pageIndex)
+        public void OnGet(string sortOrder, int? pageIndex)
         {
             if (SearchString != null)
             {
                 pageIndex = 1;
             }
 
-            var categories = (from c in _context.Categories
-                              select c);
+            //var categories = (from c in _context.Categories
+            //                  select c);
+
+            var categories = _repositoryWrapper.Category.GetAll();
 
             IdSort = string.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
             NameSort = sortOrder == "CategoryName" ? "name_desc" : "name_asc";
@@ -62,19 +66,21 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
             }
 
             int pageSize = 3;
-            _categories = await PaginatedList<LifeIn2.Domain.Entities.Category>.CreateAsync(_context.Categories, pageIndex ?? 1, pageSize);
+            _categories = PaginatedList<Domain.Entities.Category>.Create(categories, pageIndex ?? 1, pageSize);
         }
 
         public ActionResult OnGetDelete(int? id)
         {
             if (id != null)
             {
-                var data = (from categories in _context.Categories
-                            where categories.CategoryId == id
-                            select categories).FirstOrDefault();
+                //var data = (from categories in _context.Categories
+                //            where categories.CategoryId == id
+                //            select categories).FirstOrDefault();
 
-                _context.Remove(data);
-                _context.SaveChanges();
+                var data = _repositoryWrapper.Category.GetById(id.Value);
+
+                _repositoryWrapper.Category.Delete(data);
+                _repositoryWrapper.Category.Save();
             }
 
             return RedirectToPage("Card");

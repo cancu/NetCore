@@ -1,5 +1,5 @@
 ﻿
-namespace LifeIn2.Application.Repository
+namespace LifeIn2.Application.Interfaces
 {
     public interface IRepositoryWrapper
     {
