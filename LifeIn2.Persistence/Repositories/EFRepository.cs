@@ -1,5 +1,5 @@
-﻿using LifeIn2.Application.Interfaces;
-using LifeIn2.Persistence;
+﻿using CancuNetCore.Application.Interfaces;
+using CancuNetCore.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace LifeIn2.Persistence.Repositories
+namespace CancuNetCore.Persistence.Repositories
 {
     public abstract class EFRepository<T> : IRepositoryBase<T> where T : class
     {

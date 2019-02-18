@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LifeIn2.Domain.Entities
+namespace CancuNetCore.Domain.Entities
 {
     public partial class CustomerCustomerDemo
     {

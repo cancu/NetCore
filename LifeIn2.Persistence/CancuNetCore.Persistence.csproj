@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LifeIn2.Application\LifeIn2.Application.csproj" />
+    <ProjectReference Include="..\LifeIn2.Application\CancuNetCore.Application.csproj" />
   </ItemGroup>
 
   <!--<ItemGroup>

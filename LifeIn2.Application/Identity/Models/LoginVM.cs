@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LifeIn2.Application.Identity.Models
+namespace CancuNetCore.Application.Identity.Models
 {
     public class LoginVM
     {

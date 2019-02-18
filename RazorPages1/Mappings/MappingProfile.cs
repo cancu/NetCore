@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using LifeIn2.Domain.Entities;
+using CancuNetCore.Domain.Entities;
 using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LifeIn2.RazorUI.Mappings
+namespace CancuNetCore.RazorUI.Mappings
 {
     public class MappingProfile : Profile
     {

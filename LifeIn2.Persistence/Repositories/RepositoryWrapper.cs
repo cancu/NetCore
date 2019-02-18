@@ -1,10 +1,10 @@
-﻿using LifeIn2.Application.Interfaces;
-using LifeIn2.Persistence;
+﻿using CancuNetCore.Application.Interfaces;
+using CancuNetCore.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeIn2.Persistence.Repositories
+namespace CancuNetCore.Persistence.Repositories
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {        

@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using LifeIn2.Domain.Entities;
+using CancuNetCore.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace LifeIn2.Persistence.Configurations
+namespace CancuNetCore.Persistence.Configurations
 {
     public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {

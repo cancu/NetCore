@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
-using LifeIn2.Application.Identity.Models;
+using CancuNetCore.Application.Identity.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeIn2.Application.Identity.Validators
+namespace CancuNetCore.Application.Identity.Validators
 {
     public class RegisterUserViewModelValidator : AbstractValidator<RegisterUserViewModel>
     {

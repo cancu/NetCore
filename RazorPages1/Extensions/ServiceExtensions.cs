@@ -1,12 +1,12 @@
-﻿using LifeIn2.Application.Interfaces;
-using LifeIn2.Persistence.Repositories;
+﻿using CancuNetCore.Application.Interfaces;
+using CancuNetCore.Persistence.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LifeIn2.RazorUI.Extensions
+namespace CancuNetCore.RazorUI.Extensions
 {
     public static class ServiceExtensions
     {

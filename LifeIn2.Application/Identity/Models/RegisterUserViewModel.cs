@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeIn2.Application.Identity.Models
+namespace CancuNetCore.Application.Identity.Models
 {
     public class RegisterUserViewModel
     {

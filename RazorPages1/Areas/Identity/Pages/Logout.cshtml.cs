@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LifeIn2.RazorUI.Areas.Identity.Pages
+namespace CancuNetCore.RazorUI.Areas.Identity.Pages
 {
     public class LogoutModel : PageModel
     {

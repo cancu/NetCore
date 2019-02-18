@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeIn2.RazorUI", "RazorPages1\LifeIn2.RazorUI.csproj", "{AAE38A3C-D811-4958-8327-411D2D0D8DBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancuNetCore.RazorUI", "RazorPages1\CancuNetCore.RazorUI.csproj", "{AAE38A3C-D811-4958-8327-411D2D0D8DBC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E4516559-B4C3-4D21-A248-5841A7F2883B}"
 EndProject
@@ -15,13 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{32525527
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FE88F3AC-7041-462B-AAF8-B4C936C58CEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeIn2.Persistence", "LifeIn2.Persistence\LifeIn2.Persistence.csproj", "{0E3C6880-2E4E-4AE2-B5A7-9D42CC991175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancuNetCore.Persistence", "LifeIn2.Persistence\CancuNetCore.Persistence.csproj", "{0E3C6880-2E4E-4AE2-B5A7-9D42CC991175}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{469633F7-0845-4757-9B43-3615C66BD9FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeIn2.Domain", "LifeIn2.Domain\LifeIn2.Domain.csproj", "{584A23B3-6F99-430A-B68A-5E10114C819E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancuNetCore.Domain", "LifeIn2.Domain\CancuNetCore.Domain.csproj", "{584A23B3-6F99-430A-B68A-5E10114C819E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeIn2.Application", "LifeIn2.Application\LifeIn2.Application.csproj", "{47775FA7-F8A9-4DD6-A9B7-87B91FAD73E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CancuNetCore.Application", "LifeIn2.Application\CancuNetCore.Application.csproj", "{47775FA7-F8A9-4DD6-A9B7-87B91FAD73E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

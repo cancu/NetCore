@@ -1,12 +1,12 @@
-using LifeIn2.Application.Interfaces;
-using LifeIn2.Persistence;
+using CancuNetCore.Application.Interfaces;
+using CancuNetCore.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Models;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace LifeIn2.RazorUI.Areas.Category.Pages
+namespace CancuNetCore.RazorUI.Areas.Category.Pages
 {
     public class CreateModel : PageModel
     {

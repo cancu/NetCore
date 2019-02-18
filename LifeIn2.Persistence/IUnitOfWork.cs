@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LifeIn2.Persistence
+namespace CancuNetCore.Persistence
 {
     public interface IUnitOfWork : IDisposable
     {

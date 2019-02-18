@@ -2,14 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LifeIn2.Application.Identity.Models;
-using LifeIn2.Application.Interfaces;
-using LifeIn2.Domain.Entities.Security;
-using LifeIn2.Persistence;
+using CancuNetCore.Application.Identity.Models;
+using CancuNetCore.Application.Interfaces;
+using CancuNetCore.Domain.Entities.Security;
+using CancuNetCore.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LifeIn2.RazorUI.Areas.Identity.Pages
+namespace CancuNetCore.RazorUI.Areas.Identity.Pages
 {
     public class RegisterModel : PageModel
     {

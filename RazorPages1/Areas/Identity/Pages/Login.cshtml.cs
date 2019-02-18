@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using LifeIn2.Application.Identity.Models;
-using LifeIn2.Application.Interfaces;
-using LifeIn2.Persistence;
+using CancuNetCore.Application.Identity.Models;
+using CancuNetCore.Application.Interfaces;
+using CancuNetCore.Persistence;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LifeIn2.RazorUI.Areas.Identity.Pages
+namespace CancuNetCore.RazorUI.Areas.Identity.Pages
 {
     public class LoginModel : PageModel
     {

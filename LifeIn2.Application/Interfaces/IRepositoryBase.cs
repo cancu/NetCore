@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LifeIn2.Application.Interfaces
+namespace CancuNetCore.Application.Interfaces
 {
     public interface IRepositoryBase<T> //where T : IAggregateRoot    
     {

@@ -1,10 +1,10 @@
 ﻿using System;
-using LifeIn2.Domain.Entities;
-using LifeIn2.Domain.Entities.Security;
+using CancuNetCore.Domain.Entities;
+using CancuNetCore.Domain.Entities.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace LifeIn2.Persistence
+namespace CancuNetCore.Persistence
 {
     public partial class NorthwindContext : DbContext
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace LifeIn2.Application.Interfaces
+namespace CancuNetCore.Application.Interfaces
 {
     public interface IRepositoryWrapper
     {

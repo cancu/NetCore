@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace LifeIn2.RazorUI.Migrations
+namespace CancuNetCore.RazorUI.Migrations
 {
     public partial class ilk : Migration
     {

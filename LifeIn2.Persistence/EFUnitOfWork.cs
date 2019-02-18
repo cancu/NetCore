@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using LifeIn2.Application.Interfaces;
+using CancuNetCore.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace LifeIn2.Persistence
+namespace CancuNetCore.Persistence
 {
     public class EFUnitOfWork : IUnitOfWork
     {

@@ -10,14 +10,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using LifeIn2.Persistence;
+using CancuNetCore.Persistence;
 using AutoMapper;
-using LifeIn2.RazorUI;
-using LifeIn2.RazorUI.Mappings;
+using CancuNetCore.RazorUI;
+using CancuNetCore.RazorUI.Mappings;
 using FluentValidation.AspNetCore;
-using LifeIn2.Application.Identity.Models;
+using CancuNetCore.Application.Identity.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using LifeIn2.RazorUI.Extensions;
+using CancuNetCore.RazorUI.Extensions;
 
 namespace RazorPages1
 {
@@ -71,7 +71,7 @@ namespace RazorPages1
             services.AddDbContext<NorthwindContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("NorthwindContext"),
-                    b => b.MigrationsAssembly("LifeIn2.RazorUI"));
+                    b => b.MigrationsAssembly("CancuNetCore.RazorUI"));
 
             });
 

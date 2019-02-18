@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPages1.Common;
-using LifeIn2.Persistence;
-using LifeIn2.Domain;
-using LifeIn2.Application.Interfaces;
+using CancuNetCore.Persistence;
+using CancuNetCore.Domain;
+using CancuNetCore.Application.Interfaces;
 
-namespace LifeIn2.RazorUI.Areas.Category.Pages
+namespace CancuNetCore.RazorUI.Areas.Category.Pages
 {
     public class CardModel : PageModel
     {
@@ -22,7 +22,7 @@ namespace LifeIn2.RazorUI.Areas.Category.Pages
 
         //public List<Entities.Categories> _categories { get; set; }
         [BindProperty]
-        public PaginatedList<LifeIn2.Domain.Entities.Category> _categories { get; set; }
+        public PaginatedList<CancuNetCore.Domain.Entities.Category> _categories { get; set; }
 
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
